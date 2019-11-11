@@ -1,0 +1,26 @@
+syntax = "proto3";
+package main;
+
+import "google/protobuf/timestamp.proto";
+
+message PublicKey{
+    string key = 1;
+}
+
+message Hash{
+    string hash = 1;
+}
+
+message Contract{
+    message ID{
+        string id = 1;
+    }
+    ID id = 1;
+    PublicKey Owner = 2;
+    int64 Duration = 3;
+    int64 BillingPeriod = 4;
+    int64 BillingPrice = 5;
+    repeated PublicKey Replicators = 6;
+    repeated Hash Files = 7;
+    google.protobuf.Timestamp Created = 8;
+}
